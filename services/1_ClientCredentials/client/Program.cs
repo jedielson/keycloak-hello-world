@@ -25,7 +25,7 @@ namespace client
                 Address = disco.TokenEndpoint,
 
                 ClientId = "client1",
-                ClientSecret = "66bd83cc-71b1-470b-8ee1-80cbdbf23776",
+                ClientSecret = "67fa4f93-2ac5-4030-af50-1e8632741edb",
                 Scope = "api1"
             });
 

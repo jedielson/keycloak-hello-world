@@ -35,6 +35,7 @@ services:
         POSTGRES_MULTIPLE_DATABASES: bookstore,keycloak
     volumes: 
         - ./deployments/local/pg:/docker-entrypoint-initdb.d/
+        - ./deployments/local/pg/postgres-data:/var/lib/postgresql/data
     env_file: 
         - "./.env"
     networks: 
@@ -56,6 +57,10 @@ services:
         #JDBC_PARAMS: "ssl=true"
     ports:
         - 8082:8080
+    labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.authserver.rule=Host(`authserver.localhost`)"
+        - "traefik.http.services.authserver.loadbalancer.server.port=8082"
     depends_on:
         - postgres
     

@@ -8,6 +8,7 @@
         "**/dist":false,
         "**/node_modules":true,
         "**/obj": true,
-        "**/bin": false
+        "**/bin": false,
+        "**/postgres-data":true
     }
 }
