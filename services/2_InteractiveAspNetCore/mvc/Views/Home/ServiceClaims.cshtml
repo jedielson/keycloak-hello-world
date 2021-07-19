@@ -1,0 +1,12 @@
+@using Microsoft.AspNetCore.Authentication
+@model System.Collections.Generic.List<mvc.Controllers.ClaimDto>
+
+<h2>Claims</h2>
+<h4>@ViewBag.Error</h4>
+<dl>
+    @foreach (var claim in @Model)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+    }
+</dl>
