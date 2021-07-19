@@ -25,6 +25,14 @@ namespace webapi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("http://localhost:5003")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod());
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -55,6 +63,8 @@ namespace webapi
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("AllowSpecificOrigin");
 
             app.UseRouting();
 
